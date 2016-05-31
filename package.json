@@ -1,0 +1,26 @@
+{
+  "name": "ecm",
+  "version": "1.0.0",
+  "description": "enterprise content management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malaotou/ECM.git"
+  },
+  "keywords": [
+    "ecm"
+  ],
+  "author": "ma lei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malaotou/ECM/issues"
+  },
+  "homepage": "https://github.com/malaotou/ECM#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "nodemon": "^1.9.2"
+  }
+}
