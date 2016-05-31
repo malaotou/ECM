@@ -4,7 +4,7 @@ var app =express();
 app.set('view engine','jade');
 
 app.get('*',function(req,res){
-	res.send('this is the demo site');
+	res.send('this is the demo fdsfadsafds fds site');
 })
 var port=3000||process.env.PORT
 app.listen(port);
