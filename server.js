@@ -18,7 +18,7 @@ app.use(stylus.middleware({
 	compile:compile
 }));
 app.use(express.static(__dirname+'/public'));
-app.use(logger({path: "/path/to/logfile.txt"}));
+//app.use(logger({path: "/path/to/logfile.txt"}));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.locals.viewdir=__dirname+'/public/views'
