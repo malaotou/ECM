@@ -25,10 +25,10 @@
     "express": "^4.13.4",
     "jade": "^1.11.0",
     "nodemon": "^1.9.2",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+     "express-logger": "0.0.3",
   },
   "devDependencies": {
-    "express-logger": "0.0.3",
     "logger": "0.0.1"
   }
 }
