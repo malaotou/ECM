@@ -1,0 +1,17 @@
+{
+  "name": "ecm",
+  "description": "enterprise content management",
+  "main": "index.js",
+  "authors": [
+    "ma lei"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ecm"
+  ],
+  "homepage": "https://github.com/malaotou/ECM",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+  }
+}
