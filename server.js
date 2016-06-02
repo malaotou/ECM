@@ -1,32 +1,44 @@
 var express=require('express');
-var bodyParser = require('body-parser');
 var app =express();
-var stylus=require('stylus');
-var logger =require('express-logger')
+var mongoose=require('mongoose');
+var passport=require('passport');
+LocalStrtegy=require('passport-local').Strategy;
+
+var env=process.env.NODE_ENV=process.env.NODE_ENV||'development'
 
 
-function compile(str,path){
-	return stylus(str).set('filename',null);
-}
+var config= require('./server/config/config')[env];
 
+require('./server/config/express')(app,config);
+require('./server/config/routes')(app);
+require('./server/config/mongoose')(config)
 
+var User=mongoose.model('User');
+passport.use(new LocalStrtegy(
+	function(username,password,done){
+	User.findOnd({username:malei}).exec(function(err,user){
+		if(user){
+			return done(null,user);
+		} else{
+			return done(null,false);
+		}
+	})
 
-app.set('views', __dirname);
-app.set('view engine','jade');
-app.use(stylus.middleware({
-	src:__dirname+'/public',
-	compile:compile
-}));
-app.use(express.static(__dirname+'/public'));
-//app.use(logger({path: "/path/to/logfile.txt"}));
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.locals.viewdir=__dirname+'/public/views'
+	}
+))
+passport.serializeUser(function(user,done){
+	if(user){
+		done(null,user._id)
+	}
+});
 
-app.get('*',function(req,res){
-	
-	res.render('public/index');
+passport.deserializeUser(function(id,done){
+	User.findOne({}).exec(function(err,user){
+		if(user){
+			return done(null,user)
+		} else return done (null.false);
+	})
 })
-var port=process.env.PORT||3000
-app.listen(port);
-console.log('Server start on port '+port)
+//var port=process.env.PORT||3001
+app.listen(config.port);
+console.log('Server start on port '+config.port)
