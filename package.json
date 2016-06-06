@@ -33,7 +33,8 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "session": "^0.1.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "toastr": "^2.1.2"
   },
   "devDependencies": {
     "express-logger": "0.0.3",
